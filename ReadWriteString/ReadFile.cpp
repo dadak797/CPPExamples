@@ -18,5 +18,15 @@ int main()
         std::cout << character;
     }
 
+    // Read File Line by Line
+    /*std::string line;
+    while (!fin.eof())
+    {
+        getline(fin, line);
+        std::cout << line << std::endl;
+    }*/
+
+    fin.close();
+	
     return 0;
 }
