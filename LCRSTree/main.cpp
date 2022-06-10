@@ -1,5 +1,14 @@
 #include "LCRSTree.hpp"
 
+void PrintNode(Node<int>* node, int depth)
+{
+    for (int i = 0; i < depth; i++) {
+        std::cout << "-";
+    }
+    std::cout << node->GetData() << std::endl;
+    
+}
+
 int main() {
     using INT_NODE = Node<int>*;
     using INT_TREE = LCRSTree<int>;
@@ -24,7 +33,7 @@ int main() {
     tree.InsertItem(3222, tempNode3);
     tree.InsertItem(3223, tempNode3);
 
-    tree.PrintTree(tree.GetRoot());
+    tree.LoopTree(tree.GetRoot(), PrintNode);
 
     return 0;
 }

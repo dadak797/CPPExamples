@@ -42,18 +42,18 @@ public:
         return newNode;
     }
 
-    void PrintTree(const Node<T>* node, int depth = 0) {
-        for (int i = 0; i < depth; i++) {
-            std::cout << " ";
+    void LoopTree(Node<T>* node, void (*pFunc)(Node<T>*, int), int depth = 0)
+    {
+        if (pFunc) {
+            pFunc(node, depth);
         }
-        std::cout << node->GetData() << std::endl;
 
         if (node->GetChild()) {
-            PrintTree(node->GetChild(), depth + 1);
+            LoopTree(node->GetChild(), pFunc, depth + 1);
         }
 
         if (node->GetSibling()) {
-            PrintTree(node->GetSibling(), depth);
+            LoopTree(node->GetSibling(), pFunc, depth);
         }
     }
 
